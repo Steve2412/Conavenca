@@ -1,0 +1,53 @@
+        /* typography */
+        html {
+            font-family: "helvetica neue", helvetica, arial, sans-serif;
+        }
+
+        thead th,
+        tfoot th {
+            font-family: "Rock Salt", cursive;
+        }
+
+        th {
+            letter-spacing: 2px;
+        }
+
+        td {
+            letter-spacing: 1px;
+        }
+
+        tbody td {
+            text-align: center;
+        }
+
+        tfoot th {
+            text-align: right;
+        }
+
+        /* spacing */
+        table {
+            table-layout: fixed;
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 20px;
+        }
+
+        /* icons */
+        .icon {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+        }
+
+        .status span {
+            margin-left: 10px;
+        }

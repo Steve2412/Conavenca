@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CONAVENCA - Registrar</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/sb-admin-2.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        function soloLetras(event) {
+            var char = String.fromCharCode(event.which);
+            if (!/^[A-Za-z\s]+$/.test(char)) {
+                event.preventDefault();
+            }
+        }
+        function limitarCaracteres(event) {
+            var input = event.target;
+            if (input.value.length >= 10) {
+                event.preventDefault();
+            }
+        }
+        function limitarTelf(event) {
+            var input = event.target;
+            if (input.value.length >= 11) {
+                event.preventDefault();
+            }
+        }
+    </script>
+
+
+</head>
+
+<body class="bg-gradient-primary">
+
+    <div class="container">
+        <i class="fas fa-arrow-left fa-2x text-danger" role="button" aria-pressed="true" onclick="history.back()"
+            style="margin-bottom: 10px;">
+            <span style="font-family: Arial, Helvetica, sans-serif; color: white; font-size: large;">
+                <= Regresar </span>
+        </i>
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Registrar un Empleado</h1>
+                            </div>
+                            <form class="user" method="post">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="nombre"
+                                            placeholder="Nombre" name="nombre" onkeypress="soloLetras(event)">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="apellido"
+                                            placeholder="Apellido" name="apellido" onkeypress="soloLetras(event)">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <select id="tipo_persona" name="tipo_persona" class="form-control">
+                                                <option value="V" selected>V</option>
+                                            </select>
+                                        </div>
+                                        <input type="number" class="form-control form-control-user" id="cedula"
+                                            placeholder="Cédula" name="cedula" onkeypress="limitarCaracteres(event)">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="email" class="form-control form-control-user" id="email"
+                                            placeholder="Correo" name="email">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="telefono"
+                                            placeholder="N-Telefono" name="telefono" onkeypress="limitarTelf(event)">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="direccion"
+                                            placeholder="Direccion" name="direccion">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label for="sucursal">Sucursal</label>
+                                        <select class="form-control" placeholder="Sucursal" name="sucursal"
+                                            id="sucursal">
+                                            <option value="1">Caracas</option>
+                                            <option value="2">Maracaibo</option>
+                                            <option value="3">Valencia</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <label for="cargo">Cargo</label>
+                                        <select class="form-control" placeholder="Cargo" name="cargo" id="cargo">
+                                            <option value="Admin">Admin</option>
+                                            <option value="Empleado">Empleado</option>
+                                            <option value="Transportista">Transportista</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="sexo">Sexo</label>
+                                        <select class="form-control" placeholder="Sexo" name="sexo" id="sexo">
+                                            <option value="M">Masculino</option>
+                                            <option value="F">Femenino</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-control-user" id="contra"
+                                        placeholder="Contraseña" name="clave">
+                                </div>
+                                <a class="btn btn-primary btn-user btn-block" placeholder=""
+                                    id="empleado_registrar">Registrar</a>
+                                <a type="hidden" name="action" id="action"></a>
+                                <hr>
+                            </form>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+</body>
+
+<script>
+    function hidePassword() {
+        const selectElement = document.getElementById('cargo');
+        const passwordElement = document.getElementById('contra');
+
+        const selectedValue = selectElement.value;
+
+        if (selectedValue === 'Transportista') {
+            passwordElement.style.display = 'none';
+        } else {
+            passwordElement.style.display = 'block';
+        }
+    }
+
+    // Attach the event listener to the select element
+    const selectElement = document.getElementById('cargo');
+    selectElement.addEventListener('change', hidePassword);
+
+    $(document).ready(function () {
+
+        $(document).on('click', '#empleado_registrar', function () {
+            $('#action').val('empleado_registrar');
+            var ced = $('#cedula').val();
+            var tipo_persona = $('#tipo_persona').val();
+
+            var nombre = $('#nombre').val();
+            var apellido = $('#apellido').val();
+            var cedula = tipo_persona + ced;
+            var email = $('#email').val();
+            var sucursal = $('#sucursal').val();
+            var direccion = $('#direccion').val();
+            var cargo = $('#cargo').val();
+            var sexo = $('#sexo').val();
+            var contra = $('#contra').val();
+            var telefono = $('#telefono').val();
+
+            if (cedula.length <= 6) {
+                alert("Cedula invalida");
+                return false;
+            }
+
+
+            var action = $('#action').val();
+            if (nombre != '' && apellido != '' && cedula != '' && email != '' && sucursal != '' && direccion != '' && sexo != '' && cargo != '' && contra != '') {
+                $.ajax(
+                    {
+                        url: "php/action.php",
+                        type: "POST",
+                        data: { nombre: nombre, apellido: apellido, cedula: cedula, email: email, sucursal: sucursal, direccion: direccion, sexo: sexo, cargo: cargo, contra: contra, telefono: telefono, action: action },
+                        success: function (data) {
+                            alert(data);
+                            location.href = "empleados.php";
+                        }
+                    }
+                )
+
+            } else {
+                alert("Ingresa los datos solicitado");
+            }
+
+        });
+
+    });
+</script>
+
+
+</html>
